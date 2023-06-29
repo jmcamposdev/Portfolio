@@ -1,0 +1,55 @@
+/* ---------------------------------- */
+/* Marquee Animation Start*/
+/* ---------------------------------- */
+.marquee {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(calc(-25%), 0, 0);
+  animation: marquee 5s linear infinite;
+  animation-play-state: running;
+}
+.marquee__separator {
+  margin: 0 10px;
+}
+.marquee__title {
+  margin: 0;
+}
+.marquee__inner h3 {
+  font-size: 2.3rem;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+hr.rounded {
+  border-top: 3px solid #000;
+  border-radius: 50%;
+  width: 95%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(calc(-25%), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(calc(-50%), 0, 0);
+  }
+}
+
+/* ---------------------------------- */
+/* Marquee Animation Finish*/
+/* ---------------------------------- */
+
+@media only screen and (max-width: 992px) {
+  .marquee-container {
+    margin-bottom: 50px;
+  }
+}

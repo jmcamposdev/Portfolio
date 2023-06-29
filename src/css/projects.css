@@ -1,0 +1,231 @@
+/* ---------------------------------- */
+/* Title Start*/
+/* ---------------------------------- */
+.projects {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 100px;
+  padding: 0 50px;
+}
+.projects-title {
+  margin-bottom: 50px;
+}
+.projects-title h1 {
+  color: transparent;
+  -webkit-text-stroke: 2px #fb7f3b;
+  margin: 0;
+  font-size: 10vw;
+}
+/* ---------------------------------- */
+/* Title Finish*/
+/* ---------------------------------- */
+
+/* ---------------------------------- */
+/* Content Tabs Start*/
+/* ---------------------------------- */
+.projects-main-container {
+}
+.projects-content-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+.projects-tabs-container {
+  background-color: #ebebebdb;
+  border-radius: 15px;
+  backdrop-filter: blur(3px);
+  width: 40%;
+}
+.projects-tabs {
+  display: flex;
+  gap: 30px;
+  padding: 43px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: padding 0.5s;
+}
+.projects-tabs:first-child {
+  border: none;
+}
+.projects-tabs h3 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.tabs-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  box-shadow: black 3px 3px 0px;
+  border-radius: 8px;
+  transition: all 0.3s ease-out 0s;
+  padding-top: 2px;
+}
+.tabs-count h5 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.selected {
+  background: rgb(255 255 255 / 71%);
+  box-sizing: border-box;
+  box-shadow: rgb(0 0 0) 6px 6px 0px;
+  border-radius: 20px;
+  border: 1px solid rgb(0, 0, 0) !important;
+  padding: 43px 40px;
+}
+.selected .tabs-count {
+  background-color: #fb965f;
+}
+
+.h {
+  color: blue;
+}
+.projects-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 55%;
+  height: inherit;
+  padding: 60px 80px;
+  background: #ebebebdb;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3%;
+  width: 100%;
+  height: 70%;
+  position: relative;
+}
+.image-container img {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: rgb(0 0 0) 6px 6px 0px;
+  border: 1px solid rgb(0, 0, 0) !important;
+}
+.image-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35%;
+}
+.image-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 6px 24px;
+  font-weight: normal;
+  background-color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.image-button a svg {
+  transition: all 0.3s;
+
+  width: 22px;
+  margin-right: 12px;
+}
+.image-button a:hover {
+  border: 1px solid #fb965f;
+  box-shadow: 6px 6px 0px #fb965f;
+  transform: translate(-6px, -6px);
+  color: #fb965f;
+}
+.image-button a:hover svg {
+  stroke: #fb965f;
+}
+
+/* ---------------------------------- */
+/* Content Tabs Finish*/
+/* ---------------------------------- */
+
+@media only screen and (max-width: 992px) {
+  .projects {
+    padding: 0 20px;
+  }
+  .projects-content-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .projects-tabs-container {
+    width: 100%;
+  }
+  .projects-image {
+    padding: 20px;
+    width: 100%;
+    height: 500px;
+  }
+  .image-container {
+    width: 80%;
+  }
+  .image-button {
+    gap: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .projects-title h1 {
+    -webkit-text-stroke: 1.5px #fb7f3b;
+    font-size: 15vw;
+  }
+  .projects-title {
+    margin-bottom: 25px;
+  }
+  .projects-tabs {
+    align-items: center;
+    padding: 23px 20px;
+  }
+  .selected {
+    padding: 23px 20px;
+  }
+  .projects-tabs h3 {
+    font-size: 1.6rem;
+  }
+  .projects-image {
+    height: 380px;
+  }
+  .image-container {
+    width: 100%;
+    height: 75%;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .projects-image {
+    height: 300px;
+  }
+  .image-container {
+    height: 65%;
+  }
+  .image-button a svg {
+    height: 22px;
+  }
+  .image-button {
+    gap: 10px;
+    font-size: 1.2rem;
+  }
+}
