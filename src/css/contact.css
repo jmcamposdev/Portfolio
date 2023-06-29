@@ -1,0 +1,72 @@
+.contact {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 150px 50px 0 50px;
+}
+.contact-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.contact-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 15px 25px;
+  font-weight: normal;
+  background-color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.contact-button a:hover {
+  border: 1px solid #fb965f;
+  box-shadow: 6px 6px 0px #fb965f;
+  transform: translate(-6px, -6px);
+  color: #fb965f;
+}
+
+.contact-button a svg {
+  margin-right: 12px;
+  width: 22px;
+  height: 22px;
+}
+.contact-button a:hover svg {
+  stroke: #fb965f;
+}
+.contact-button img {
+  width: 50%;
+  max-width: 600px;
+}
+
+@media only screen and (max-width: 992px) {
+  .contact-button {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .contact {
+    padding: 100px 50px 0 50px;
+  }
+  .contact img {
+    width: 100%;
+  }
+  .contact .title-effect {
+    font-size: 15vw;
+    margin-bottom: 25px;
+  }
+  .contact-button a {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .github {
+    order: -1;
+    margin-bottom: 15px;
+  }
+}
