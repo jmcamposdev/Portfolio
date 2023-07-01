@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import uuid from "react-uuid";
 import { ScrollTitle } from "../../assets/scrollTitle.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 import "../../css/projects.css";
@@ -9,66 +10,46 @@ import moviesearch from "../../img/moviesearch.jpg";
 import pokeapi from "../../img/pokeapi.jpg";
 import todolist from "../../img/todolist.jpg";
 
-export default function Proyects() {
-  const [proyectsItems, setProyectsItems] = useState([
-    {
-      id: 1,
-      title: "Shorter",
-      image: shorter,
-      show: true,
-      url: "https://shorter.jmcampos.tk",
-      github: "https://github.com/jmcamposdev/shorter",
-    },
-    {
-      id: 2,
-      title: "MoviSearch",
-      image: moviesearch,
-      show: false,
-      url: "https://movie.jmcampos.tk",
-      github: "https://github.com/jmcamposdev/moviesearch",
-    },
-    {
-      id: 3,
-      title: "PokeApi",
-      image: pokeapi,
-      show: false,
-      url: "https://pokeapi.jmcampos.tk",
-      github: "https://github.com/jmcamposdev/pokeapi",
-    },
-    {
-      id: 4,
-      title: "TodoList",
-      image: todolist,
-      show: false,
-      url: "https://todolist.jmcampos.tk",
-      github: "https://github.com/jmcamposdev/todolist",
-    },
+export default function Projects() {
+
+    class Project { 
+      constructor(title, image, show, url, github) {
+          this.id = uuid();
+          this.title = title;
+          this.image = image;
+          this.show = show;
+          this.url = url;
+          this.github = github;
+      }
+    } 
+
+  const [projectsItems] = useState([
+    new Project("To Do List", todolist, true, "https://jmcampos.dev/todolist", "https://github.com/jmcamposdev/todolist"),
+    new Project("Shorter", shorter, false, "https://jmcampos.dev/shorter", "https://github.com/jmcamposdev/shorter"),
+    new Project("Movie Search", moviesearch, false, "https://jmcampos.dev/moviesearch", "https://github.com/jmcamposdev/moviesearch"),
+    new Project("PokeApi", pokeapi, false, "https://jmcampos.dev/pokeapi", "https://github.com/jmcamposdev/pokeapi"),
   ]);
-  const [urlPage, setUrlPage] = useState({
-    url: proyectsItems[0].url,
-    github: proyectsItems[0].github,
-  });
 
-  const handletab = (e, id) => {
-    proyectsItems.map((proyect, index) => {
-      let tab = document.getElementById(index);
-      tab.classList.remove("selected");
-      return e.currentTarget.classList.add("selected");
-    });
-    setUrlPage({
-      url: proyectsItems[id].url,
-      github: proyectsItems[id].github,
-    });
-    handleimg(id);
+  const [activeProject, setActiveProject] = useState(projectsItems[0]);
+
+
+  const handletab = (event, passId) => {
+    const currentProject = projectsItems.find((project) => project.id === passId); // Find the new active element
+    setActiveProject(currentProject); // Set the new active element
+
+    setProject(currentProject); // Set the new active element
+    setActiveImg(currentProject);
   };
 
-  const handleimg = (id) => {
-    const img = [...proyectsItems];
-    img.map((img) => {
-      return (img.show = false);
-    });
-    setProyectsItems(img, (img[id].show = true));
+  const setActiveImg = (currentProject) => {
+    activeProject.show = false;
+    currentProject.show = true;
   };
+
+  const setProject = (currentProject) => {
+      document.getElementById(activeProject.id).classList.remove("selected"); // Remove the class from the element who has it
+      document.getElementById(currentProject.id).classList.add("selected"); // Add the class to the new active element
+  }
 
   return (
     <div className="projects">
@@ -85,17 +66,17 @@ export default function Proyects() {
           }}
           viewport={{ once: true }}
         >
-          {proyectsItems.map((project, index) => (
+          {projectsItems.map((project, index) => (
             <div
-              id={index}
-              key={index}
+              id={project.id}
+              key={project.id}
               className={
-                index === 0 ? "projects-tabs selected" : "projects-tabs"
+                activeProject.id === project.id ? "projects-tabs selected" : "projects-tabs"
               }
-              onClick={(e) => handletab(e, index)}
+              onClick={(e) => handletab(e, project.id)}
             >
               <div className="tabs-count">
-                <h5>{project.id}</h5>
+                <h5>{index+1}</h5>
               </div>
               <h3 translate="no">{project.title}</h3>
             </div>
@@ -112,7 +93,7 @@ export default function Proyects() {
           viewport={{ once: true }}
         >
           <div className="image-container">
-            {proyectsItems.map((proyect, index) => (
+            {projectsItems.map((proyect, index) => (
               <AnimatePresence key={`image-${index}`}>
                 {proyect.show && (
                   <>
@@ -129,12 +110,7 @@ export default function Proyects() {
             ))}
           </div>
           <div className="image-button">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={urlPage.url}
-              translate="no"
-            >
+            <a target="_blank" rel="noreferrer" href={activeProject.url} translate="no">
               <svg
                 style={{ transform: "rotate(180deg)", margin: "0 12px 0 0" }}
                 xmlns="http://www.w3.org/2000/svg"
@@ -154,12 +130,7 @@ export default function Proyects() {
               Demo
             </a>
 
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={urlPage.github}
-              translate="no"
-            >
+            <a target="_blank" rel="noreferrer" href={activeProject.github} translate="no">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="44"
