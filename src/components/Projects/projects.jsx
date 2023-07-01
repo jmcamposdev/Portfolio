@@ -109,7 +109,7 @@ export default function Projects() {
             ))}
           </div>
           <div className="image-button">
-            <a target="_blank" rel="noreferrer" href={activeProject.url} translate="no">
+            <a target="_blank" rel="canonical" href={activeProject.url} translate="no">
               <svg
                 style={{ transform: "rotate(180deg)", margin: "0 12px 0 0" }}
                 xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +129,7 @@ export default function Projects() {
               Demo
             </a>
 
-            <a target="_blank" rel="noreferrer" href={activeProject.github} translate="no">
+            <a target="_blank" rel="canonical" href={activeProject.github} translate="no">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="44"
