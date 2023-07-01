@@ -11,7 +11,6 @@ import pokeapi from "../../img/pokeapi.jpg";
 import todolist from "../../img/todolist.jpg";
 
 export default function Projects() {
-
     class Project { 
       constructor(title, image, show, url, github) {
           this.id = uuid();
