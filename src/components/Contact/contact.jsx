@@ -41,7 +41,7 @@ export default function Contact() {
         <a
           className="github"
           target="_blank"
-          rel="canonical"
+          rel="canonical noreferrer"
           href="https://github.com/jmcamposdev"
         >
           <svg
