@@ -15,7 +15,7 @@ export function ScrollTitle({ title }) {
       className="projects-title noselect"
       style={useMediaQuery("(min-width: 992px)") ? { x: yRange } : {}}
     >
-      <h1 translate="no">{title}</h1>
+      <h2 translate="no">{title}</h2>
     </motion.div>
   );
 }

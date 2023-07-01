@@ -41,7 +41,7 @@ export default function Contact() {
         <a
           className="github"
           target="_blank"
-          rel="noreferrer"
+          rel="canonical noreferrer"
           href="https://github.com/jmcamposdev"
         >
           <svg
@@ -60,7 +60,7 @@ export default function Contact() {
           </svg>
           jmcamposdev
         </a>
-        <img alt="Jose Maria" src={require("../../img/person-600x600.png")} />
+        <img alt="Jose Maria" src={require("../../img/person-600x600.png")}/>
       </div>
     </section>
   );
